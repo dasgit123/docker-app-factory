@@ -1,0 +1,16 @@
+# docker command to launch a new container for mysql (5.6.27 version for poc)
+docker run --name mysql_db -p 3306:3306 -e MYSQL_USER=mysql -e MYSQL_PASSWORD=mysql -e MYSQL_DATABASE=sample -e  MYSQL_ROOT_PASSWORD=supersecret -d mysql
+
+# data directory by default
+/var/lib/mysql
+
+# path of the mysql configuration properties
+/etc/mysql
+
+a directory: conf.d where you can place your custom configuration properties
+a file: my.cnf which is the default configuration file
+
+# to mount from file-system to docker container
+-v /path/to/my-local-dir/my_custom.cnf:/etc/mysql/my.cnf
+
+root password: root123
